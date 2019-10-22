@@ -4,9 +4,12 @@ require 'classes/fileDB.php';
 require 'file.php';
 
 $db = new FileDB('data/db.txt');
+$db->load();
 
 $db->addRow('Vartotojai', ['name' => 'Milda', 'surname' => 'Zakarkaite']);
 $db->save();
+
+$db->load();
 var_dump($db->getData());
 //
 //$db->setData(['table' => [['name' =>]]]);

@@ -9,7 +9,7 @@ class FileDB {
         $this->file_name = $file_name;
     }
 
-    public function __load() {
+    public function load() {
         $this->data = file_to_array($this->file_name);
     }
     
