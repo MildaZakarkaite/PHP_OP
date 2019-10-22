@@ -1,28 +1,44 @@
 <?php
 
-class Car {
-    private $marke;
-    private $fuel;
-    
-    public function __construct($marke) {
-        $this->marke = $marke;
-        $this->fuel = 0;
+class FileDB {
+
+    private $file_name;
+    private $data;
+
+    public function __construct($file_name) {
+        $this->file_name = $file_name;
     }
-    
-    private function addFuel($amount) {
-        $this->fuel += $amount;
+
+    public function __load() {
+        $this->data = file_to_array($this->file_name);
     }
-    
-    public function addABitOfFuel() {
-        $this->addFuel(1);
+
+    public function setData($data_array) {
+        $this->data = $data_array;
+    }
+
+    public function save() {
+        return array_to_file($this->data, $this->file_name);
+    }
+
+    public function getData() {
+        return $this->data;
+    }
+
+    public function getRow($table, $row_id) {
+        if (isset($this->data[$table])) {
+            return $this->data[$table][$row_id];
+        }
+    }
+
+    public function addRow($table, $row, $row_id = null) {
+        if ($row_id !== null) {
+            $table;
+            $row;
+        } else {
+            $table;
+            $row;
+            $row_id;
+        }
     }
 }
-
-$fiat = new Car('Fiat');
-$fiat->addABitOfFuel();
-//$fiat->marke = 'Fiat';
-var_dump($fiat);
-
-$kia = new Car('Kia');
-$kia->addABitOfFuel();
-var_dump($kia);
