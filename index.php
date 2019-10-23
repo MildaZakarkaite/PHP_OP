@@ -6,8 +6,8 @@ require 'file.php';
 $db = new FileDB('data/db.txt');
 $db->load();
 
-$db->addRow('Vartotojai', ['name' => 'Milda', 'surname' => 'Zakarkaite']);
-$db->save();
+//$db->addRow('Vartotojai', ['name' => 'Milda', 'surname' => 'Zakarkaite']);
+//$db->save();
 
 $db->load();
 var_dump($db->getData());
@@ -27,4 +27,3 @@ var_dump($db->getData());
 //$db->save();
 //Galima tureti kita objekta su kita duonbaze veikiancia tuo paciu principu
 //$db_2 = new FileDB('data/users.txt');
-

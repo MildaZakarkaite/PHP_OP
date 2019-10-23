@@ -12,28 +12,47 @@ class FileDB {
     public function load() {
         $this->data = file_to_array($this->file_name);
     }
-    
+
     public function save() {
         return array_to_file($this->data, $this->file_name);
     }
-    
+
     public function getData() {
         return $this->data;
     }
-    
+
     public function setData($data_array) {
         $this->data = $data_array;
     }
 
     public function getRow($table, $row_id) {
 //        if (isset($this->data[$table])) { Apsaugo jei toks neegzistuoja
-            return $this->data[$table][$row_id];
+        return $this->data[$table][$row_id];
 //        }
     }
 
     public function addRow($table, $row) {
         $this->data[$table][] = $row;
-}
+    }
+
+    public function creatTable($table_name) {
+        if (!isset ($this->data[$table_name])) {
+        $this->data[$table_name] [];
+            return true;
+        }
+            return false;       
+        }
+    
+    
+    public function tableExist($table_name) {
+        if (!isset ($this->data[$table_name])) {
+            return true;
+        }
+            return false;       
+        }
+    
+    
+    
 //public function addRow($table, $row, $row_id = null) {
 //        if ($row_id !== null) {
 //            $table;
@@ -46,4 +65,5 @@ class FileDB {
 //    }
 //}
 //
-}
+    }
+    
