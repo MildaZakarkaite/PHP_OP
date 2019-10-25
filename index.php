@@ -1,29 +1,28 @@
 <?php
+declare (strict_types = 1);
 
-require 'classes/fileDB.php';
+require 'classes/FileDB.php';
+require 'classes/Drinks/drink.php';
+require 'classes/Sandwitch/sandwich.php';
 require 'file.php';
 
-$db = new FileDB('data/db.txt');
+$drinks_table = 'drinks';
+$sandwitches_table = 'sandwiches';
+
+$cola = new Drink();
+$burger = new Sandwitch();
+
+var_dump($cola);
+var_dump($burger);
+
+$db = new FileDB('../data/db.txt');
 $db->load();
 
-//$db->addRow('Vartotojai', ['name' => 'Milda', 'surname' => 'Zakarkaite']);
-//$db->save();
+$db->creatTable($drinks_table);
+$db->creatTable($sandwiches_table);
 
-$db->load();
-var_dump($db->getData());
-//
-//$db->setData(['table' => [['name' =>]]]);
-//
-//var_dump($db->getData());
-//
-//$db->getRow('table', 0);
-//
-//var_dump($db->getRow('table', 0));
+$db->save();
 
 
 
 
-//$db->load();
-//$db->save();
-//Galima tureti kita objekta su kita duonbaze veikiancia tuo paciu principu
-//$db_2 = new FileDB('data/users.txt');
